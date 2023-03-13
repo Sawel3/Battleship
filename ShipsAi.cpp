@@ -143,8 +143,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 						granica += 1;
 						break;
 					}
-				}
-				
+				}	
 			}
 			if (blad == false) {
 				for (int i = xp; i <= xk; i++)

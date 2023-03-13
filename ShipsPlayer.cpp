@@ -1,8 +1,9 @@
 #include<iostream>
 #include "ShipsPlayer.h"
 using namespace std;
+
 void ShipsPlayer::SetCoordinates(int lenght, int qt) {
-	int nb = 0, xp, yp, xk, yk;
+	int nb = 0, xp, yp, xk, yk, granica = 0, granica2 = 0, granica3 = 0, granica4 = 0, granica5 = 0;
 	char** board = tab.GetBoard();
 	int N = tab.GetN();
 	while (nb < qt) {
@@ -42,21 +43,105 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 			cout << rozx << endl << xp << endl << xk << endl;
 			for (int i = xp; i <= xk; i++)
 			{
-				cout << i << "forx\n";
+				/*cout << i << "forx\n";*/
 				if (board[i][yp] == 'x') {
-					cout << "zajete\n";
+					/*cout << "zajete\n";*/
 					blad = true;
 					break;
 				}
 			}
 			for (int i = xp; i <= xk; i++)
 			{
-				cout << i << "forOx\n";
-				if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
+				/*cout << i << "forOx\n";*/
+				if (i != 0 && i != (N - 1) && yp != 0 && yp != (N - 1))
+				{
+					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
 
-					cout << "graniczy\n";
-					blad = true;
-					break;
+						/*cout << "graniczy\n";*/
+						blad = true;
+						granica += 1;
+						break;
+					}
+				}
+				else if (i == 0 && yp == 0)
+				{
+					if (board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x')
+					{
+						/*cout << "graniczy2\n";*/
+						granica2 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && yp == 0)
+				{
+					if (board[i - 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x')
+					{
+						/*cout << "graniczy3\n";*/
+						granica3 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && yp == (N - 1))
+				{
+					if (board[i - 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x')
+					{
+						/*cout << "graniczy4\n";*/
+						granica4 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0 && yp == (N - 1))
+				{
+					if (board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x')
+					{
+						/*cout << "graniczy5\n";*/
+						granica5 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0)
+				{
+					if (board[i + 1][yp] == 'x' || board[i + 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i][yp - 1] == 'x')
+					{
+						/*cout << "graniczy5\n";*/
+						granica5 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == N - 1)
+				{
+					if (board[i - 1][yp] == 'x' || board[i - 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i][yp - 1] == 'x')
+					{
+						/*cout << "graniczy5\n";*/
+						granica5 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (yp == 0)
+				{
+					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
+
+						/*cout << "graniczy\n";*/
+						blad = true;
+						granica += 1;
+						break;
+					}
+				}
+				else if (yp == N - 1)
+				{
+					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x') {
+
+						/*cout << "graniczy\n";*/
+						blad = true;
+						granica += 1;
+						break;
+					}
 				}
 			}
 			if(blad==false){
@@ -78,22 +163,102 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 			cout << rozy << endl << xp << endl << xk << endl;;
 			for (int i = yp; i <= yk; i++)
 			{
-				cout << i << "forx\n";
+				/*cout << i << "forx\n";*/
 				if (board[xp][i] == 'x')
 				{
-					cout << "zajete\n";
+					/*cout << "zajete\n";*/
 					blad = true;
 					break;
 				}
 			}
 			for (int i = yp; i <= yk; i++)
 			{
-				cout << i << "forOx\n";
-				if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-					cout << "graniczy\n";
-					blad = true;
-					break;
+				/*cout << i << "forOx\n";*/
+				//if przy krawedzi x=0 lub y=0 lub x=max lub y=max
+				//if czy w rogu
+				if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
+						/*cout << "graniczy\n";*/
+						granica += 1;
+						blad = true;
+						break;
+					}
 				}
+				else if (i == 0 && xp == 0)
+				{
+					if (board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i + 1] == 'x')
+					{
+						/*cout << "graniczy2\n";*/
+						granica2 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0 && xp == (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x')
+					{
+						/*cout << "graniczy3\n";*/
+						granica3 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && xp == (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x')
+					{
+						/*cout << "graniczy4\n";*/
+						granica4 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && xp == 0)
+				{
+					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp + 1][i - 1] == 'x')
+					{
+						/*cout << "graniczy5\n";*/
+						granica5 += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0)
+				{
+					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
+						/*cout << "graniczy\n";*/
+						granica += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (i == N - 1) {
+					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x') {
+						/*cout << "graniczy\n";*/
+						granica += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (xp == 0) {
+					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp + 1][i + 1] == 'x') {
+						/*cout << "graniczy\n";*/
+						granica += 1;
+						blad = true;
+						break;
+					}
+				}
+				else if (xp == N - 1) {
+					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x') {
+						/*cout << "graniczy\n";*/
+						granica += 1;
+						blad = true;
+						break;
+					}
+				}
+
 			}
 			if(blad==false){
 				for (int i = yp; i <= yk; i++)
