@@ -12,13 +12,16 @@ Boards::Boards() {
 	{
 		board[i] = new char[N];
 	}
-}
-char **Boards::GetBoard() {
-	char **board = new char* [N];
 	for (int i = 0; i < N; i++)
 	{
-		board[i] = new char[N];
+		for (int j = 0; j < N; j++)
+		{
+			board[i][j] =' ';
+		}
 	}
+	
+}
+char **Boards::GetBoard() {
 	return board;
 }
 void Boards::Show_Board() {
@@ -56,7 +59,7 @@ void Boards::Clear_Board() {
 	{
 		for (int j = 0; j < N; j++)
 		{
-			board[i][j] = 0 + '  ';
+			board[i][j] =' ';
 		}
 	}
 };

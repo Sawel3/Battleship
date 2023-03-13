@@ -67,6 +67,7 @@ int main() {
 	Boards gracz;
 	ShipsAi ai;
 	gracz.Clear_Board();
+	/*char** arr = gracz.GetBoard();*/
 	gracz.Show_Board();
 	ai.SetShipsAi();
 	
