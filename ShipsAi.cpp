@@ -53,7 +53,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 			for (int i = xp; i <= xk; i++)
 			{
 				cout << i << "forOx\n";
-				if (i!=0 && i!=N && yp!=0 && yp!=N)
+				if (i!=0 && i!= (N - 1) && yp!=0 && yp!= (N - 1))
 				{
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
 
@@ -62,13 +62,41 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 						break;
 					}
 				}
-				else if ()
+				else if (i==0 && yp ==0)
 				{
-
+					if (board[i+1][yp] == 'x' || board [i][yp+1]=='x')
+					{
+						cout << "graniczy2\n";
+						blad = true;
+						break;
+					}
 				}
-				else if (true)
+				else if (i== (N - 1) && yp ==0)
 				{
-
+					if (board[i-1][yp]=='x'||board[i][yp+1]=='x')
+					{
+						cout << "graniczy3\n";
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && yp == (N - 1))
+				{
+					if (board[i - 1][yp] == 'x' || board[i][yp - 1]=='x')
+					{
+						cout << "graniczy4\n";
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0 && yp == (N - 1))
+				{
+					if (board[i + 1][yp] == 'x' || board[i][yp - 1]=='x')
+					{
+						cout << "graniczy5\n";
+						blad = true;
+						break;
+					}
 				}
 				
 			}
@@ -78,8 +106,9 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 					cout << i << "for\n";
 					if (board[i][yp] != 'x')
 					{
-						cout << "if\n";
+						cout <<i<< "if\n";
 						board[i][yp] = 'x';
+						tab.Show_Board();
 					}
 				}
 				tab.Show_Board();
@@ -103,12 +132,52 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 			{
 				cout << i << "forOx\n";
 				//if przy krawedzi x=0 lub y=0 lub x=max lub y=max
-				//if czy w rogu 
-				if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-					cout << "graniczy\n";
-					blad = true;
-					break;
+				//if czy w rogu
+				if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
+						cout << "graniczy\n";
+						blad = true;
+						break;
+					}
 				}
+				else if (i == 0 && xp == 0)
+				{
+					if (board[xp + 1][i] == 'x' || board[xp][i + 1]=='x')
+					{
+						cout << "graniczy2\n";
+						blad = true;
+						break;
+					}
+				}
+				else if (i == 0 && xp == (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp][i + 1]=='x')
+					{
+						cout << "graniczy3\n";
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N - 1) && xp == (N - 1))
+				{
+					if (board[xp - 1][i] == 'x' || board[xp][i - 1]=='x')
+					{
+						cout << "graniczy4\n";
+						blad = true;
+						break;
+					}
+				}
+				else if (i == (N-1) && xp == 0)
+				{
+					if (board[xp + 1][i] == 'x' || board[xp][i - 1]=='x')
+					{
+						cout << "graniczy5\n";
+						blad = true;
+						break;
+					}
+				}
+				
 			}
 			if (blad == false) {
 				for (int i = yp; i <= yk; i++)
@@ -118,6 +187,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 					{
 						cout << "if\n";
 						board[xp][i] = 'x';
+						tab.Show_Board();
 					}
 				}
 				tab.Show_Board();
