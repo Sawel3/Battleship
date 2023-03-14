@@ -1,10 +1,10 @@
 #pragma once
 #include "Boards.h"
-class Attack
+class IsDestroyed
 {
 private:
-	Boards tab;
+
 public:
-	void Atak(char **board);
+
 };
 

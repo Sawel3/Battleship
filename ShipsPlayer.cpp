@@ -11,11 +11,11 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 		cout << "poczatkowe[x,y]\n";
 		cin >> yp >> xp;
 		board[xp][yp] = 'C';
-		tab.Show_Board();
+		tab.Show_Board(board);
 		cout << "koncowe[x,y]\n";
 		cin >> yk >> xk;
 		board[xk][yk] = 'C';
-		tab.Show_Board();
+		tab.Show_Board(board);
 		cout << "______\n";
 		if (xk < xp)
 		{
@@ -154,7 +154,7 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 						board[i][yp] = 'x';
 					}
 				}
-				tab.Show_Board();
+				tab.Show_Board(board);
 				nb++;
 			}
 		}
@@ -270,7 +270,7 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 						board[xp][i] = 'x';
 					}
 				}
-				tab.Show_Board();
+				tab.Show_Board(board);
 				nb++;
 			}
 		}
@@ -280,7 +280,7 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 			cout << "chujowo wybrales\n";
 		}
 		cout << nb << endl;
-		tab.Show_Board();
+		tab.Show_Board(board);
 	}
 }
 void ShipsPlayer::SetShips() {

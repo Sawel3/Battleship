@@ -7,6 +7,7 @@ private:
 public:
 	void SetShipsAi();
 	void SetCoordinatesAi(int lenght, int qt);
+	char** GetAiBoard();
 
 };
 

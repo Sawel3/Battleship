@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "ShipsAi.h"
 #include "Boards.h"
+#include "Attack.h"
+#include "ShipsPlayer.h"
 
 using namespace std;
 class Ships
@@ -58,18 +60,17 @@ public:
 
 int main() {
 	srand(time(0));
-	/*Board gracz1;
-	ShipsAi Ai;
-	Boards board;
-	gracz1.Clear_Board();
-	board.Show_Board();
-	Ai.SetShipsAi();*/
-	Boards gracz;
+	Boards tablica;
 	ShipsAi ai;
-	gracz.Clear_Board();
-	/*char** arr = gracz.GetBoard();*/
-	gracz.Show_Board();
+	ShipsPlayer gracz;
+	Attack atak;
+	tablica.Clear_Board();
 	ai.SetShipsAi();
-	
+	cout << "dziala\n";
+	char** arr = ai.GetAiBoard();
+	tablica.Show_Board(arr);
+	atak.Atak(arr);
+	tablica.Show_Board(arr);
+
 	return 0;
 }

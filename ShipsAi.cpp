@@ -1,7 +1,8 @@
 #include<iostream>
 #include "ShipsAi.h"
 using namespace std;
-
+char** board;
+int ship[10][2][2], statki=0;
 void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2=0, granica3 =0, granica4=0, granica5=0;
 	char** board = tab.GetBoard();
@@ -158,6 +159,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 				}
 				/*tab.Show_Board();*/
 				nb++;
+				statki++;
 			}
 		}
 		else if (xp == xk)
@@ -275,6 +277,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 				}
 				/*tab.Show_Board();*/
 				nb++;
+				statki++;
 			}
 		}
 		else {
@@ -283,6 +286,10 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 			/*cout << "chujowo wybrales\n";*/
 		}
 		/*cout << "liczba=" << nb << endl;*/
+		ship[statki][0][0] = xp;
+		ship[statki][0][1] = yp;
+		ship[statki][1][0] = xk;
+		ship[statki][1][1] = yk;
 	}
 	/*cout << granica << endl << granica2 << endl << granica3 << endl << granica4 << endl << granica5 << endl;*/
 }
@@ -290,16 +297,21 @@ void ShipsAi::SetShipsAi() {
 	
 	//carrier
 	SetCoordinatesAi(5, 1);
-	tab.Show_Board();
+	
+	/*tab.Show_Board();*/
 	//battleship
 	SetCoordinatesAi(4, 2);
-	tab.Show_Board();
+	/*tab.Show_Board();*/
 	//cruiser
 	SetCoordinatesAi(3, 2);
-	tab.Show_Board();
+	/*tab.Show_Board();*/
 	//submarine
 	SetCoordinatesAi(3, 1);
 	//patrol boat
 	SetCoordinatesAi(2, 4);
-	tab.Show_Board();
+	/*tab.Show_Board();*/
+}
+char** ShipsAi::GetAiBoard() {
+	char** arr = tab.GetBoard();
+	return arr;
 }

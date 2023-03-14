@@ -7,7 +7,7 @@ private:
 	int MaxShips = 10;
 public:
 	Boards();
-	void Show_Board();
+	void Show_Board(char** board);
 	int GetN();
 	char **GetBoard();
 	void Clear_Board();

@@ -24,7 +24,7 @@ Boards::Boards() {
 char **Boards::GetBoard() {
 	return board;
 }
-void Boards::Show_Board() {
+void Boards::Show_Board(char** board) {
 	char a = 'A';
 	int b = 0;
 	//char** board = GetBoard();

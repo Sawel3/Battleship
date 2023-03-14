@@ -2,16 +2,19 @@
 #include "Attack.h"
 using namespace std;
 
-Attack::Attack(int x, int y, char** board) {
+void Attack::Atak(char** board) {
 	bool trafiony=true;
-	int strzaly=true;
+	int strzaly=true,x,y;
 	while (trafiony==true)
 	{
-		if (board[x][y] == 'x')
+		cin >> x >> y;
+		if (board[y][x] == 'x')
 		{
 			cout << "trafiony\n";
-			board[x][y] = 'X';
+			board[y][x] = 'T';
 			trafiony = true;
+			tab.Show_Board(board);
+			continue;
 		}
 		else
 		{
