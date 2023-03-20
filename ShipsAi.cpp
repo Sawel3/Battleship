@@ -2,8 +2,9 @@
 #include "ShipsAi.h"
 using namespace std;
 char** board;
-int ship[10][2][2], statki=0;
-void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
+int licz=0;
+
+void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2=0, granica3 =0, granica4=0, granica5=0;
 	char** board = tab.GetBoard();
 	int N = tab.GetN();
@@ -147,6 +148,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 				}	
 			}
 			if (blad == false) {
+				int j = 0;
 				for (int i = xp; i <= xk; i++)
 				{
 					/*cout << i << "for\n";*/
@@ -154,12 +156,15 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 					{
 						/*cout <<i<< "if\n";*/
 						board[i][yp] = 'x';
+						statki[licz].statki[j] = &board[i][yp];
+						j++;
 						/*tab.Show_Board();*/
 					}
 				}
 				/*tab.Show_Board();*/
 				nb++;
-				statki++;
+				licz++;
+				/*statki++;*/
 			}
 		}
 		else if (xp == xk)
@@ -265,6 +270,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 				
 			}
 			if (blad == false) {
+				int j = 0;
 				for (int i = yp; i <= yk; i++)
 				{
 					/*cout << i << "for\n";*/
@@ -272,12 +278,16 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 					{
 						/*cout << "if\n";*/
 						board[xp][i] = 'x';
+						statki[licz].statki[j]=&board[xp][i];
+						j++;
 						/*tab.Show_Board();*/
 					}
 				}
 				/*tab.Show_Board();*/
 				nb++;
-				statki++;
+				licz++;
+				cout << licz << endl;
+				/*statki++;*/
 			}
 		}
 		else {
@@ -286,29 +296,25 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt) {
 			/*cout << "chujowo wybrales\n";*/
 		}
 		/*cout << "liczba=" << nb << endl;*/
-		ship[statki][0][0] = xp;
-		ship[statki][0][1] = yp;
-		ship[statki][1][0] = xk;
-		ship[statki][1][1] = yk;
 	}
 	/*cout << granica << endl << granica2 << endl << granica3 << endl << granica4 << endl << granica5 << endl;*/
 }
-void ShipsAi::SetShipsAi() {
+void ShipsAi::SetShipsAi(Ships statki[]) {
 	
 	//carrier
-	SetCoordinatesAi(5, 1);
+	SetCoordinatesAi(5, 1, statki);
 	
 	/*tab.Show_Board();*/
 	//battleship
-	SetCoordinatesAi(4, 2);
+	SetCoordinatesAi(4, 2, statki);
 	/*tab.Show_Board();*/
 	//cruiser
-	SetCoordinatesAi(3, 2);
+	SetCoordinatesAi(3, 2, statki);
 	/*tab.Show_Board();*/
 	//submarine
-	SetCoordinatesAi(3, 1);
+	SetCoordinatesAi(3, 1, statki);
 	//patrol boat
-	SetCoordinatesAi(2, 4);
+	SetCoordinatesAi(2, 4, statki);
 	/*tab.Show_Board();*/
 }
 char** ShipsAi::GetAiBoard() {

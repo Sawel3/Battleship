@@ -30,7 +30,7 @@
     <ClCompile Include="Attack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IsDestroyed.cpp">
+    <ClCompile Include="Ships.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="Attack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IsDestroyed.h">
+    <ClInclude Include="Ships.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
