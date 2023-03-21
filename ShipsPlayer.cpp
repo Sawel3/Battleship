@@ -1,11 +1,7 @@
-#include<iostream>
 #include "ShipsPlayer.h"
-using namespace std;
-
 void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2 = 0, granica3 = 0, granica4 = 0, granica5 = 0;
 	char** board = tab.GetBoard();
-	int N = tab.GetN();
 	while (nb < qt) {
 		bool blad = false;
 		cout << "poczatkowe[x,y]\n";

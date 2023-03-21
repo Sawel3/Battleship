@@ -1,8 +1,4 @@
-#include <iostream>
 #include "Ships.h"
-
-using namespace std;
-
 Ships::Ships() {
 	for (int i = 0; i < 6; i++)
 	{

@@ -1,7 +1,9 @@
 #pragma once
+#include <iostream>
 #include "Boards.h"
 #include "Ships.h"
 #include <stdlib.h>
+using namespace std;
 class Attack
 {
 private:

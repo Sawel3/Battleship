@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 class Boards
 {
 private:
@@ -13,10 +15,5 @@ public:
 	char **GetBoard();
 	void Clear_Board();
 };
-//int Boards::GetN() const{
-//	return N;
-//}
-//char Boards::GetBoard() {
-//	return board[N][N];
-//}
+
 

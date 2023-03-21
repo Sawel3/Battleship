@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Attack.h"
-using namespace std;
-
 void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, char** PlayerBoard) {
 	bool trafiony=true, over=false;
 	int strzaly=true,x,y;

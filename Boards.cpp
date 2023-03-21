@@ -1,11 +1,7 @@
-#include <iostream>
 #include "Boards.h"
-using namespace std;
 int Boards::GetN() {
 	return N;
 }
-//Boards tab;
-//int N = tab.GetN();
 Boards::Boards() {
 	board = new char* [N];
 	for (int i = 0; i < N; i++)
