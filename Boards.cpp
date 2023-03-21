@@ -53,6 +53,40 @@ void Boards::Show_Board(char** board) {
 	}
 	cout << "_______________________________________________\n";
 }
+void Boards::ShowTwoBoard(char** board) {
+	char a = 'A';
+	int b = 0;
+	//char** board = GetBoard();
+	for (int i = 0; i < N; i++)
+	{
+		if (i == 0) {
+			cout << "     | ";
+			for (int j = 0; j < N; j++)
+			{
+				cout << j << " | ";
+			}
+			cout << endl << "_______________________________________________\n";
+			cout << "     | ";
+			for (int j = 0; j < N; j++)
+			{
+				cout << j << " | ";
+			}
+		}
+		for (int j = 0; j < N; j++)
+		{
+			if (j == 0)
+			{
+				cout << " " << a << " " << b << " | ";
+				a += 1;
+				b++;
+			}
+
+			cout << board[i][j]/*<<"[" << i <<"," << j << "]" */ << " | ";
+		}
+		cout << endl;
+	}
+	cout << "_______________________________________________\n";
+}
 void Boards::Clear_Board() {
 	//char** board = tab.GetBoard();
 	for (int i = 0; i < N; i++)

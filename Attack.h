@@ -6,6 +6,7 @@ class Attack
 private:
 	Boards tab;
 public:
-	void Atak(char **board, Ships statki[]);
+	void Atak(char **board, Ships statki[], char** ndboard, char** rdboard);
+	void AiAtak(char** board, Ships statki[], char** ndboard);
 };
 

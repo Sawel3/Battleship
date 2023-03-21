@@ -15,7 +15,7 @@ int main() {
 	Boards tablica;
 	ShipsAi ai;
 	ShipsPlayer gracz;
-	Attack atak;
+	Attack atak;  
 	tablica.Clear_Board();
 	ai.SetShipsAi(statki);
 	cout << "dziala\n";

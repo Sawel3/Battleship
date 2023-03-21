@@ -2,16 +2,16 @@
 #include "Attack.h"
 using namespace std;
 
-void Attack::Atak(char** board, Ships statki[]) {
+void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, char** PlayerBoard) {
 	bool trafiony=true, over=false;
 	int strzaly=true,x,y;
 	while (trafiony==true && over==false)
 	{
 		cin >> x >> y;
-		if (board[y][x] == 'x')
+		if (AiRealBoard[y][x] == 'x')
 		{
 			cout << "trafiony\n";
-			board[y][x] = 'T';
+			AiRealBoard[y][x] = 'T';
 			trafiony = true;
 			for (int  i = 0; i < 10; i++)
 			{
@@ -30,6 +30,48 @@ void Attack::Atak(char** board, Ships statki[]) {
 						cout << "Wygrales farajerze essa na noba\n";
 						exit(0);
 						
+					}
+				};
+			}
+			tab.Show_Board(AiRealBoard);
+			continue;
+		}
+		else
+		{
+			trafiony = false;
+			cout << "pudlo\n";
+			break;
+		}
+	}
+}
+void Attack::AiAtak(char** board, Ships statki[]) {
+	bool trafiony = true, over = false;
+	int strzaly = true, x, y;
+	while (trafiony == true && over == false)
+	{
+		cin >> x >> y;
+		if (board[y][x] == 'x')
+		{
+			cout << "trafiony\n";
+			board[y][x] = 'T';
+			trafiony = true;
+			for (int i = 0; i < 10; i++)
+			{
+				if (statki[i].IsDestroyed() == true) {
+					cout << "zniszczony\n";
+					int win = 0;
+					for (int i = 0; i < 10; i++)
+					{
+						if (statki[i].isDestroyed) {
+							win++;
+						}
+					}
+					if (win == 10)
+					{
+						over = true;
+						cout << "Wygrales farajerze essa na noba\n";
+						exit(0);
+
 					}
 				};
 			}
