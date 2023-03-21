@@ -12,6 +12,7 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 		{
 			cout << "trafiony\n";
 			AiRealBoard[y][x] = 'T';
+			AiVisibleBoard[y][x] = 'X';
 			trafiony = true;
 			for (int  i = 0; i < 10; i++)
 			{
@@ -29,10 +30,10 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 						over = true;
 						cout << "Wygrales farajerze essa na noba\n";
 						exit(0);
-						
 					}
 				};
 			}
+			tab.ShowTwoBoard(AiVisibleBoard,PlayerBoard);
 			tab.Show_Board(AiRealBoard);
 			continue;
 		}
@@ -44,16 +45,17 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 		}
 	}
 }
-void Attack::AiAtak(char** board, Ships statki[]) {
+void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 	bool trafiony = true, over = false;
 	int strzaly = true, x, y;
 	while (trafiony == true && over == false)
 	{
-		cin >> x >> y;
-		if (board[y][x] == 'x')
+		x = rand() % N;
+		y = rand() % N;
+		if (PlayerBoard[y][x] == 'x')
 		{
 			cout << "trafiony\n";
-			board[y][x] = 'T';
+			PlayerBoard[y][x] = 'T';
 			trafiony = true;
 			for (int i = 0; i < 10; i++)
 			{
@@ -75,7 +77,7 @@ void Attack::AiAtak(char** board, Ships statki[]) {
 					}
 				};
 			}
-			tab.Show_Board(board);
+			tab.ShowTwoBoard(AiVisibleBoard, PlayerBoard);
 			continue;
 		}
 		else

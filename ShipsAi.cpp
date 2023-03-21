@@ -286,7 +286,7 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				/*tab.Show_Board();*/
 				nb++;
 				licz++;
-				cout << licz << endl;
+				/*cout << licz << endl;*/
 				/*statki++;*/
 			}
 		}

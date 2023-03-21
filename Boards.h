@@ -8,7 +8,7 @@ private:
 public:
 	Boards();
 	void Show_Board(char** board);
-	void ShowTwoBoard(char** board);
+	void ShowTwoBoard(char** AiBoard,char**PmcBoard);
 	int GetN();
 	char **GetBoard();
 	void Clear_Board();

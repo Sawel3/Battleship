@@ -53,24 +53,27 @@ void Boards::Show_Board(char** board) {
 	}
 	cout << "_______________________________________________\n";
 }
-void Boards::ShowTwoBoard(char** board) {
+void Boards::ShowTwoBoard(char** AiBoard, char** PmcBoard) {
 	char a = 'A';
 	int b = 0;
+	char c = 'A';
+	int d = 0;
 	//char** board = GetBoard();
 	for (int i = 0; i < N; i++)
 	{
 		if (i == 0) {
+			cout << "\t\tPC's board\t\t\t\t\t\tPlayer's Board\n";
 			cout << "     | ";
 			for (int j = 0; j < N; j++)
 			{
 				cout << j << " | ";
 			}
-			cout << endl << "_______________________________________________\n";
-			cout << "     | ";
+			cout << "\t\t     | ";
 			for (int j = 0; j < N; j++)
 			{
 				cout << j << " | ";
 			}
+			cout << endl << "______________________________________________\t\t______________________________________________\n";	
 		}
 		for (int j = 0; j < N; j++)
 		{
@@ -81,11 +84,21 @@ void Boards::ShowTwoBoard(char** board) {
 				b++;
 			}
 
-			cout << board[i][j]/*<<"[" << i <<"," << j << "]" */ << " | ";
+			cout << AiBoard[i][j]/*<<"[" << i <<"," << j << "]" */ << " | ";
+		}
+
+		for (int j = 0; j < N; j++) {
+			
+			if (j == 0) {
+				cout << "\t\t " << c << " " << d << " | ";
+				c += 1;
+				d++;
+			}	
+			cout<< PmcBoard[i][j]/*<<"[" << i <<"," << j << "]" */ << " | ";
 		}
 		cout << endl;
 	}
-	cout << "_______________________________________________\n";
+	cout << "______________________________________________\t\t______________________________________________\n";
 }
 void Boards::Clear_Board() {
 	//char** board = tab.GetBoard();
