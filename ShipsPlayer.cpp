@@ -1,7 +1,7 @@
 #include "ShipsPlayer.h"
-void ShipsPlayer::SetCoordinates(int lenght, int qt) {
+void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2 = 0, granica3 = 0, granica4 = 0, granica5 = 0;
-	char** board = tab.GetBoard();
+	board = tab.GetBoard();
 	while (nb < qt) {
 		bool blad = false;
 		cout << "poczatkowe[x,y]\n";
@@ -141,17 +141,19 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 				}
 			}
 			if(blad==false){
+				int j = 0;
 				for (int i = xp; i <= xk; i++)
 				{
-					cout << i << "forx\n";
 					if (board[i][yp] != 'x')
 					{
-						cout << "if\n";
 						board[i][yp] = 'x';
+						statki[licz].statki[j] = &board[i][yp];
+						j++;
 					}
 				}
 				tab.Show_Board(board);
 				nb++;
+				licz++;
 			}
 		}
 		else if (xp == xk)
@@ -257,17 +259,19 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 
 			}
 			if(blad==false){
+				int j = 0;
 				for (int i = yp; i <= yk; i++)
 				{
-					cout << i << "for\n";
 					if (board[xp][i] != 'x')
 					{
-						cout << "if\n";
 						board[xp][i] = 'x';
+						statki[licz].statki[j] = &board[xp][i];
+						j++;
 					}
 				}
 				tab.Show_Board(board);
 				nb++;
+				licz++;
 			}
 		}
 		else {
@@ -279,20 +283,24 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt) {
 		tab.Show_Board(board);
 	}
 }
-void ShipsPlayer::SetShips() {
+void ShipsPlayer::SetShips(Ships statki[]) {
 	//carrier
 	cout << "Wprowadz koordynaty dla carriera\n";
-	SetCoordinates(5, 1);
+	SetCoordinates(5, 1, statki);
 	//battleship
 	cout << "Wprowadz koordynaty dla battleshipa\n";
-	SetCoordinates(4, 2);
+	SetCoordinates(4, 2, statki);
 	//cruiser
 	cout << "Wprowadz koordynaty dla cruisera\n";
-	SetCoordinates(3, 2);
+	SetCoordinates(3, 2, statki);
 	//submarine
 	cout << "Wprowadz koordynaty dla submarine\n";
-	SetCoordinates(3, 1);
+	SetCoordinates(3, 1, statki);
 	//patrol boat
 	cout << "Wprowadz koordynaty dla patrola\n";
-	SetCoordinates(2, 4);
+	SetCoordinates(2, 4, statki);
+}
+char** ShipsPlayer::GetAiBoard() {
+	char** arr = tab.GetBoard();
+	return arr;
 }

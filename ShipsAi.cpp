@@ -1,7 +1,7 @@
 #include "ShipsAi.h"
 void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2=0, granica3 =0, granica4=0, granica5=0;
-	char** board = tab.GetBoard();
+	board = tab.GetBoard();
 	while (nb < qt) {
 		bool blad=false;
 		yp = rand() % N;

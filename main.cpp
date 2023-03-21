@@ -8,11 +8,12 @@
 #include "Ships.h"
 
 using namespace std;
-Ships AiShips[10];
-Ships PmcShips[10];
+Ships AiShips[10]; //array of class Ships for Ai Ships
+Ships PmcShips[10]; //array of class Ships for Player's Ships
 
 int main() {
 	srand(time(0));
+	//setting objects
 	Boards tablica;
 	Boards AiBoards;
 	Boards PmcBoards;
@@ -22,8 +23,10 @@ int main() {
 	Attack atak;  
 
 	tablica.Clear_Board();
+
 	AiBoards.Clear_Board();
 	char** AiBoard = AiBoards.GetBoard();
+
 	PmcBoards.Clear_Board();
 	char** PmcBoard = PmcBoards.GetBoard();
 
@@ -33,8 +36,8 @@ int main() {
 	player.SetShipsAi(PmcShips);
 	char** PmcArr = player.GetAiBoard();
 
-	/*tablica.Show_Board(AiArr);*/
 	tablica.ShowTwoBoard(AiBoard,PmcArr);
+	//game loop
 	while (true)
 	{
 		tablica.Show_Board(AiArr);
@@ -43,7 +46,5 @@ int main() {
 		cout << "PC's turn\n";
 		atak.AiAtak(PmcArr,PmcShips,AiBoard);
 	}
-	// if win
-	
 	return 0;
 }
