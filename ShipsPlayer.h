@@ -13,6 +13,6 @@ private:
 public:
 	void SetShips(Ships statki[]);
 	void SetCoordinates(int lenght, int qt, Ships statki[]);
-	char** GetAiBoard();
+	char** GetBoard();
 };
 

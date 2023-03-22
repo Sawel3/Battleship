@@ -33,8 +33,9 @@ int main() {
 	ai.SetShipsAi(AiShips);
 	char** AiArr = ai.GetAiBoard();
 
-	player.SetShipsAi(PmcShips);
-	char** PmcArr = player.GetAiBoard();
+	gracz.SetShips(PmcShips);
+	/*player.SetShipsAi(PmcShips);*/
+	char** PmcArr = gracz.GetBoard();
 
 	tablica.ShowTwoBoard(AiBoard,PmcArr);
 	//game loop

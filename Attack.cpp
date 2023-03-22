@@ -2,43 +2,55 @@
 void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, char** PlayerBoard) {
 	bool trafiony=true, over=false;
 	int strzaly=true,x,y;
+	string point;
 	while (trafiony==true && over==false)
 	{
-		cin >> x >> y;
-		if (AiRealBoard[y][x] == 'x')
+		cin >> point;
+		x = point[1] - 49;
+		y = abs(65 - point[0]);
+		if (x<0||x>10||y<0||y>10)
 		{
-			cout << "trafiony\n";
-			AiRealBoard[y][x] = 'T';
-			AiVisibleBoard[y][x] = 'X';
-			trafiony = true;
-			for (int  i = 0; i < 10; i++)
-			{
-				if (statki[i].IsDestroyed() == true) {
-					cout << "zniszczony\n";
-					int win = 0;
-					for (int i = 0; i < 10; i++)
-					{
-						if (statki[i].isDestroyed) {
-							win++;
-						}
-					}
-					if (win == 10)
-					{
-						over = true;
-						cout << "Wygrales farajerze essa na noba\n";
-						exit(0);
-					}
-				};
-			}
-			tab.ShowTwoBoard(AiVisibleBoard,PlayerBoard);
-			tab.Show_Board(AiRealBoard);
+			cout << "Zle wybrales\n";
+			cout << "Przyklad "<<char(74-rand()%10)<<10-rand()%9<<endl;
 			continue;
 		}
 		else
 		{
-			trafiony = false;
-			cout << "pudlo\n";
-			break;
+			if (AiRealBoard[y][x] == 'x')
+			{
+				cout << "trafiony\n";
+				AiRealBoard[y][x] = 'T';
+				AiVisibleBoard[y][x] = 'X';
+				trafiony = true;
+				for (int i = 0; i < 10; i++)
+				{
+					if (statki[i].IsDestroyed() == true) {
+						cout << "zniszczony\n";
+						int win = 0;
+						for (int i = 0; i < 10; i++)
+						{
+							if (statki[i].isDestroyed) {
+								win++;
+							}
+						}
+						if (win == 10)
+						{
+							over = true;
+							cout << "Wygrales farajerze essa na noba\n";
+							exit(0);
+						}
+					};
+				}
+				tab.ShowTwoBoard(AiVisibleBoard, PlayerBoard);
+				tab.Show_Board(AiRealBoard);
+				continue;
+			}
+			else
+			{
+				trafiony = false;
+				cout << "pudlo\n";
+				break;
+			}
 		}
 	}
 }
