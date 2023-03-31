@@ -3,32 +3,155 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk, granica = 0, granica2 = 0, granica3 = 0, granica4 = 0, granica5 = 0;
 	string beg, end;
 	board = tab.GetBoard();
-	tab.Show_Board(board);
+	
 	while (nb < qt) {
 		bool blad = false;
+		for (int i = 0; i < N; i++)
+		{
+			for (int j = 0; j < N; j++)
+			{
+				if (board[i][j] == 'C')
+				{
+					board[i][j] = ' ';
+				}
+			}
+		}
+		tab.Show_Board(board);
 		cout << "poczatkowe\nprzyklad:  "<< char(74 - rand() % 10) << 10 - rand() % 9<<endl;
 		cin >> beg;
-		yp=beg[1] - 49;
+		if (beg.length() != 2) {
+			cout << "Cos zle wpisales mordo!!!\n";
+			blad == true;
+			continue;
+		}
+		if (beg[0] < 65 || beg[0]>74)
+		{
+			cout << "Cos zle wpisales mordo!!!\n";
+			continue;
+		}
+		if (beg[2]=='0')
+		{
+			yp = 9;
+		}
+		else {
+			yp=beg[1] - 49;
+		}
 		xp = abs(65 - beg[0]);
 		cout << xp << endl << yp<<endl;
-		/*if (board[xp][yp] == 'x') {
+		if (board[xp][yp] == 'x') {
 			cout << "Pole jest zajete\n";
 			blad = true;
 			continue;
-		}*/
-		/*cin >> yp >> xp;*/
+		}
+		else if (xp != 0 && xp != (N - 1) && yp != 0 && yp != (N - 1))
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp + 1][yp] == 'x' || board[xp][yp - 1] == 'x' || board[xp][yp + 1] == 'x' || board[xp - 1][yp - 1] == 'x' || board[xp + 1][yp - 1] == 'x' || board[xp - 1][yp + 1] == 'x' || board[xp + 1][yp + 1] == 'x') {
+
+				/*cout << "graniczy\n";*/
+				blad = true;
+				granica += 1;
+				continue;
+			}
+		}
+		else if (xp == (N - 1) && yp == 0)
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp][yp + 1] == 'x' || board[xp - 1][yp + 1] == 'x')
+			{
+				/*cout << "graniczy3\n";*/
+				granica3 += 1;
+				blad = true;
+				continue;
+			}
+		}
+		else if (xp == (N - 1) && yp == (N - 1))
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp][yp - 1] == 'x' || board[xp - 1][yp - 1] == 'x')
+			{
+				/*cout << "graniczy4\n";*/
+				granica4 += 1;
+				blad = true;
+				continue;
+			}
+		}
+		else if (xp == 0 && yp == (N - 1))
+		{
+			if (board[xp + 1][yp] == 'x' || board[xp][yp - 1] == 'x' || board[xp + 1][yp - 1] == 'x')
+			{
+				/*cout << "graniczy5\n";*/
+				granica5 += 1;
+				blad = true;
+				continue;
+			}
+		}
+		else if (xp == 0)
+		{
+			if (board[xp + 1][yp] == 'x' || board[xp + 1][yp + 1] == 'x' || board[xp][yp + 1] == 'x' || board[xp + 1][yp - 1] == 'x' || board[xp][yp - 1] == 'x')
+			{
+				/*cout << "graniczy5\n";*/
+				granica5 += 1;
+				blad = true;
+				continue;
+			}
+		}
+		else if (xp == N - 1)
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp - 1][yp + 1] == 'x' || board[xp][yp + 1] == 'x' || board[xp - 1][yp - 1] == 'x' || board[xp][yp - 1] == 'x')
+			{
+				/*cout << "graniczy5\n";*/
+				granica5 += 1;
+				blad = true;
+				continue;
+			}
+		}
+		else if (yp == 0)
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp + 1][yp] == 'x' || board[xp][yp + 1] == 'x' || board[xp - 1][yp + 1] == 'x' || board[xp + 1][yp + 1] == 'x') {
+
+				/*cout << "graniczy\n";*/
+				blad = true;
+				granica += 1;
+				continue;
+			}
+		}
+		else if (yp == N - 1)
+		{
+			if (board[xp - 1][yp] == 'x' || board[xp + 1][yp] == 'x' || board[xp][yp - 1] == 'x' || board[xp - 1][yp - 1] == 'x' || board[xp + 1][yp - 1] == 'x') {
+
+				/*cout << "graniczy\n";*/
+				blad = true;
+				granica += 1;
+				continue;
+			}
+		}
 		board[xp][yp] = 'C';
 		tab.Show_Board(board);
 		cout << "koncowe\nprzyklad: " << char(74 - rand() % 10) << 10 - rand() % 9 << endl;
 		cin >> end;
-		yk = end[1] - 49;
+		cout << end.length() << endl;
+		if (end.length() != 2) {
+			cout << "Cos zle wpisales mordo!!!\n";
+			blad == true;
+			continue;
+		}
+		if (end[0] < 65 || end[0]>74)
+		{
+			cout << "Cos zle wpisales mordo!!!\n";
+			continue;
+		}
+		if (end[2]=='0')
+		{
+			yk = 9;
+		}
+		else {
+			yk = end[1] - 49;
+		}	
 		xk = abs(65 - end[0]);
 		cout << xk << endl << yk << endl;
-		/*if (board[xk][yk] == 'x') {
+		if (board[xk][yk] == 'x') {
 			cout << "Pole jest zajete\n";
 			blad = true;
 			continue;
-		}*/
+		}
 		/*cin >> yk >> xk;*/
 		board[xk][yk] = 'C';
 		tab.Show_Board(board);
@@ -202,6 +325,7 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 							j++;
 						}
 					}
+					
 					tab.Show_Board(board);
 					nb++;
 					licz++;
@@ -374,6 +498,7 @@ void ShipsPlayer::SetShips(Ships statki[]) {
 	//patrol boat
 	cout << "Wprowadz koordynaty dla patrola\n";
 	SetCoordinates(2, 4, statki);
+	system("CLS");
 }
 char** ShipsPlayer::GetBoard() {
 	char** arr = tab.GetBoard();

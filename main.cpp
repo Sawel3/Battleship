@@ -36,11 +36,11 @@ int main() {
 	gracz.SetShips(PmcShips);
 	/*player.SetShipsAi(PmcShips);*/
 	char** PmcArr = gracz.GetBoard();
-
-	tablica.ShowTwoBoard(AiBoard,PmcArr);
+	tablica.ShowTwoBoard(AiBoard, PmcArr);
 	//game loop
 	while (true)
 	{
+		tablica.ShowTwoBoard(AiBoard,PmcArr);
 		tablica.Show_Board(AiArr);
 		cout << "Player's turn\n";
 		atak.Atak(AiArr, AiShips, AiBoard, PmcArr);

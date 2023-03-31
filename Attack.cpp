@@ -6,8 +6,25 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 	while (trafiony==true && over==false)
 	{
 		cin >> point;
+		if (point.length() != 2) {
+			cout << "Cos zle wpisales mordo!!!\n";
+			continue;
+		}
+		if (point[0] < 65 || point[0]>74)
+		{
+			cout << "Cos zle wpisales mordo!!!\n";
+			continue;
+		}
+		
 		x = point[1] - 49;
-		y = abs(65 - point[0]);
+		if (point[2] == '0')
+		{
+			y = 9;
+		}
+		else
+		{
+			y = abs(65 - point[0]);
+		}
 		if (x<0||x>10||y<0||y>10)
 		{
 			cout << "Zle wybrales\n";
