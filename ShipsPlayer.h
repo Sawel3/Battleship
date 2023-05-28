@@ -3,8 +3,7 @@
 #include "Boards.h"
 #include "Ships.h"
 using namespace std;
-class ShipsPlayer
-{
+class ShipsPlayer{
 private:
 	Boards tab;
 	int N = tab.GetN();

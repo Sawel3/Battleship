@@ -271,6 +271,8 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 		}
 		else if (PlayerBoard[y][x] == 'T'|| PlayerBoard[y][x] == 'O') {
 			cout << "Juz tu strzelales mordo\n";
+			LastHit = false;
+			DoubleHit = false;
 			continue;
 		}
 		else

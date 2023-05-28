@@ -1,8 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
-class Boards
-{
+class Boards{
 private:
 	int N = 10;
 	char **board;

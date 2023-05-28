@@ -7,137 +7,88 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 	while (nb < qt) {
 		bool blad=false;
 		yp = rand() % N;
-		/*cout << "yp=" << yp << endl;*/
 		xp = rand() % N;
-		/*cout << "xp=" << xp << endl;*/
 		yk = rand() % N;
-		/*cout << "yk=" << yk << endl;*/
 		xk = rand() % N;
-		/*cout << "xk=" << xk << endl;*/
-		if (xk < xp)
-		{
+		if (xk < xp){
 			int temp = xk;
 			xk = xp;
 			xp = temp;
 		}
-		if (yk < yp)
-		{
+		if (yk < yp){
 			int temp = yk;
 			yk = yp;
 			yp = temp;
 		}
 		int rozx = (xk - xp) + 1;
-		/*cout << "rozx=" << rozx << endl;*/
 		int rozy = (yk - yp) + 1;
-		/*cout << "rozy=" << rozy << endl;*/
-		if (rozx != lenght && rozy != lenght)
-		{
-			/*board[xp][yp] = 0 + '  ';
-			board[xk][yk] = 0 + '  ';*/
-			/*cout << "chuj\n";*/
-			continue;
-		}
-		else if (yp == yk)
-		{
-			/*cout << rozx << endl << xp << endl << xk << endl;*/
-			for (int i = xp; i <= xk; i++)
-			{
-				/*cout << i << "forx\n";*/
+		if (rozx != lenght && rozy != lenght) continue;
+		else if (yp == yk){
+			for (int i = xp; i <= xk; i++){
 				if (board[i][yp] == 'x') {
-					/*cout << "zajete\n";*/
 					blad = true;
 					break;
 				}
 			}
-			/*blad=checker.CheckIfTouch(board ,N, xp, xk, yp, blad, granica, granica2, granica3, granica4, granica5);*/
-			for (int i = xp; i <= xk; i++)
-			{
-				/*cout << i << "forOx\n";*/
-				if (i != 0 && i != (N - 1) && yp != 0 && yp != (N - 1))
-				{
+			for (int i = xp; i <= xk; i++){
+				if (i != 0 && i != (N - 1) && yp != 0 && yp != (N - 1)){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
-
-						/*cout << "graniczy\n";*/
 						blad = true;
 						granica += 1;
 						break;
 					}
 				}
-				else if (i == 0 && yp == 0)
-				{
-					if (board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x')
-					{
-						/*cout << "graniczy2\n";*/
+				else if (i == 0 && yp == 0){
+					if (board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x'){
 						granica2 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == (N - 1) && yp == 0)
-				{
-					if (board[i - 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x')
-					{
-						/*cout << "graniczy3\n";*/
+				else if (i == (N - 1) && yp == 0){
+					if (board[i - 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x'){
 						granica3 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == (N - 1) && yp == (N - 1))
-				{
-					if (board[i - 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x')
-					{
-						/*cout << "graniczy4\n";*/
+				else if (i == (N - 1) && yp == (N - 1)){
+					if (board[i - 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x'){
 						granica4 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == 0 && yp == (N - 1))
-				{
-					if (board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x')
-					{
-						/*cout << "graniczy5\n";*/
+				else if (i == 0 && yp == (N - 1)){
+					if (board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x'){
 						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == 0)
-				{
-					if (board[i + 1][yp] == 'x' || board[i + 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i][yp - 1] == 'x')
-					{
-						/*cout << "graniczy5\n";*/
+				else if (i == 0){
+					if (board[i + 1][yp] == 'x' || board[i + 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i][yp - 1] == 'x'){
 						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == N - 1)
-				{
-					if (board[i - 1][yp] == 'x' || board[i - 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i][yp - 1] == 'x')
-					{
-						/*cout << "graniczy5\n";*/
+				else if (i == N - 1){
+					if (board[i - 1][yp] == 'x' || board[i - 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i][yp - 1] == 'x'){
 						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (yp == 0)
-				{
+				else if (yp == 0){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
-
-						/*cout << "graniczy\n";*/
 						blad = true;
 						granica += 1;
 						break;
 					}
 				}
-				else if (yp == N - 1)
-				{
+				else if (yp == N - 1){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x') {
-
-						/*cout << "graniczy\n";*/
 						blad = true;
 						granica += 1;
 						break;
@@ -146,96 +97,62 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 			}
 			if (blad == false) {
 				int j = 0;
-				for (int i = xp; i <= xk; i++)
-				{
-					/*cout << i << "for\n";*/
-					if (board[i][yp] != 'x')
-					{
-						/*cout <<i<< "if\n";*/
+				for (int i = xp; i <= xk; i++){
+					if (board[i][yp] != 'x'){
 						board[i][yp] = 'x';
 						statki[licz].statki[j] = &board[i][yp];
 						j++;
-						/*tab.Show_Board();*/
 					}
 				}
-				/*tab.Show_Board();*/
 				nb++;
 				licz++;
-				/*statki++;*/
 			}
 		}
-		else if (xp == xk)
-		{
-			/*cout << rozy << endl << xp << endl << xk << endl;;*/
-			for (int i = yp; i <= yk; i++)
-			{
-				/*cout << i << "forx\n";*/
-				if (board[xp][i] == 'x')
-				{
-					/*cout << "zajete\n";*/
+		else if (xp == xk){
+			for (int i = yp; i <= yk; i++){
+				if (board[xp][i] == 'x'){
 					blad = true;
 					break;
 				}
 			}
-			/*blad = checker.CheckIfTouch(board, N, yp, yk, xp, blad, granica, granica2, granica3, granica4, granica5);*/
-			for (int i = yp; i <= yk; i++)
-			{
-				/*cout << i << "forOx\n";*/
-				//if przy krawedzi x=0 lub y=0 lub x=max lub y=max
-				//if czy w rogu
-				if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1))
-				{
+			for (int i = yp; i <= yk; i++){
+				if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1)){
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						/*cout << "graniczy\n";*/
 						granica += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == 0 && xp == 0)
-				{
-					if (board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i + 1] == 'x')
-					{
-						/*cout << "graniczy2\n";*/
+				else if (i == 0 && xp == 0){
+					if (board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i + 1] == 'x'){
 						granica2 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == 0 && xp == (N - 1))
-				{
-					if (board[xp - 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x')
-					{
-						/*cout << "graniczy3\n";*/
+				else if (i == 0 && xp == (N - 1)){
+					if (board[xp - 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x'){
 						granica3 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == (N - 1) && xp == (N - 1))
-				{
-					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x')
-					{
-						/*cout << "graniczy4\n";*/
+				else if (i == (N - 1) && xp == (N - 1)){
+					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x'){
 						granica4 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == (N - 1) && xp == 0)
-				{
-					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp + 1][i - 1] == 'x')
-					{
-						/*cout << "graniczy5\n";*/
+				else if (i == (N - 1) && xp == 0){
+					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp + 1][i - 1] == 'x'){
 						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
-				else if (i == 0)
-				{
+				else if (i == 0){
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						/*cout << "graniczy\n";*/
 						granica += 1;
 						blad = true;
 						break;
@@ -243,7 +160,6 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				}
 				else if (i == N - 1) {
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x') {
-						/*cout << "graniczy\n";*/
 						granica += 1;
 						blad = true;
 						break;
@@ -251,7 +167,6 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				}
 				else if (xp == 0) {
 					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						/*cout << "graniczy\n";*/
 						granica += 1;
 						blad = true;
 						break;
@@ -259,7 +174,6 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				}
 				else if (xp == N - 1) {
 					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x') {
-						/*cout << "graniczy\n";*/
 						granica += 1;
 						blad = true;
 						break;
@@ -269,51 +183,33 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 			}
 			if (blad == false) {
 				int j = 0;
-				for (int i = yp; i <= yk; i++)
-				{
-					/*cout << i << "for\n";*/
-					if (board[xp][i] != 'x')
-					{
-						/*cout << "if\n";*/
+				for (int i = yp; i <= yk; i++){
+					if (board[xp][i] != 'x'){
 						board[xp][i] = 'x';
 						statki[licz].statki[j]=&board[xp][i];
 						j++;
-						/*tab.Show_Board();*/
 					}
 				}
-				/*tab.Show_Board();*/
 				nb++;
 				licz++;
-				/*cout << licz << endl;*/
-				/*statki++;*/
 			}
 		}
 		else {
-			/*board[xp][yp] = 0 + '  ';
-			board[xk][yk] = 0 + '  ';*/
 			/*cout << "chujowo wybrales\n";*/
 		}
-		/*cout << "liczba=" << nb << endl;*/
 	}
-	/*cout << granica << endl << granica2 << endl << granica3 << endl << granica4 << endl << granica5 << endl;*/
 }
 void ShipsAi::SetShipsAi(Ships statki[]) {
-	
 	//carrier
 	SetCoordinatesAi(5, 1, statki);
-	
-	/*tab.Show_Board();*/
 	//battleship
 	SetCoordinatesAi(4, 2, statki);
-	/*tab.Show_Board();*/
 	//cruiser
 	SetCoordinatesAi(3, 2, statki);
-	/*tab.Show_Board();*/
 	//submarine
 	SetCoordinatesAi(3, 1, statki);
 	//patrol boat
 	SetCoordinatesAi(2, 4, statki);
-	/*tab.Show_Board();*/
 }
 char** ShipsAi::GetAiBoard() {
 	char** arr = tab.GetBoard();

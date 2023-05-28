@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include "CheckIf.h"
 using namespace std;
-class Attack
-{
+class Attack{
 private:
 	Boards tab;
 	int N = tab.GetN();
