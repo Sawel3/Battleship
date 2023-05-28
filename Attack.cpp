@@ -3,73 +3,54 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 	bool trafiony=true, over=false;
 	int strzaly=true,x,y;
 	string point;
-	while (trafiony==true && over==false)
-	{
+	while (trafiony==true && over==false){
+		tab.Show_Board(AiRealBoard);
 		cin >> point;
-		if (point.length() != 2) {
-			cout << "Cos zle wpisales mordo!!!\n";
-			continue;
-		}
-		if (point[0] < 65 || point[0]>74)
-		{
-			cout << "Cos zle wpisales mordo!!!\n";
-			continue;
-		}
-		
-		x = point[1] - 49;
-		if (point[2] == '0')
-		{
-			y = 9;
-		}
-		else
-		{
-			y = abs(65 - point[0]);
-		}
-		if (x<0||x>10||y<0||y>10)
-		{
+		if (point.length() > 3 || point.length() < 0) continue;
+		else if (point.length() != 2 && point.length() != 3) continue;
+		if (point[0] < 65 || point[0]>74) continue;
+		x = abs(65-point[0]);
+		if (point[2] == '0' && point[1] == '1') y = 9;
+		else y = point[1]-49;
+		if (x<0||x>10||y<0||y>10){
 			cout << "Zle wybrales\n";
 			cout << "Przyklad "<<char(74-rand()%10)<<10-rand()%9<<endl;
 			continue;
 		}
-		else
-		{
-			if (AiRealBoard[y][x] == 'x')
-			{
+		else{
+			if (AiRealBoard[x][y] == 'x'){
+				consol.SetCursorPosition(0, 0);
 				cout << "trafiony\n";
-				AiRealBoard[y][x] = 'T';
-				AiVisibleBoard[y][x] = 'X';
+				AiRealBoard[x][y] = 'T';
+				AiVisibleBoard[x][y] = 'X';
 				trafiony = true;
-				for (int i = 0; i < 10; i++)
-				{
+				for (int i = 0; i < 10; i++){
 					if (statki[i].IsDestroyed() == true) {
+						consol.SetCursorPosition(0, 0);
 						cout << "zniszczony\n";
 						int win = 0;
-						for (int i = 0; i < 10; i++)
-						{
-							if (statki[i].isDestroyed) {
-								win++;
-							}
+						for (int j = 0; j < 10; j++){
+							if (statki[j].isDestroyed) win++;
 						}
-						if (win == 10)
-						{
+						if (win == 10){
 							over = true;
+							system("CLS");
 							cout << "Wygrales farajerze essa na noba\n";
 							exit(0);
 						}
 					};
 				}
+				consol.ClearConsoleFromThirdLine();
 				tab.ShowTwoBoard(AiVisibleBoard, PlayerBoard);
-				tab.Show_Board(AiRealBoard);
 				continue;
 			}
-			else if (AiRealBoard[y][x] == 'T') {
+			else if (AiRealBoard[x][y] == 'T') {
 				cout << "juz tu strzela³es mordo\n";
 				continue;
 			}
-			else
-			{
+			else{
 				trafiony = false;
-				AiVisibleBoard[y][x] = 'O';
+				AiVisibleBoard[x][y] = 'O';
 				cout << "pudlo\n";
 				break;
 			}
@@ -79,14 +60,11 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 	bool trafiony = true, over = false, LastHit = false, DoubleHit = false;
 	int x=0, y=0, dodx, dody;
-	while (trafiony == true && over == false)
-	{
+	while (trafiony == true && over == false){
 		if (DoubleHit == true) {
-			switch (dodx)
-			{
+			switch (dodx){
 			case 0:
-				switch (dody)
-				{
+				switch (dody){
 				case 1:
 					y += 1;
 					break;
@@ -107,28 +85,20 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 				break;
 			}
 		}
-		else if (LastHit == true)
-		{
+		else if (LastHit == true){
 			dodx = 0, dody = 0;
 			if (x == 0) {
-				if (y == 0)
-				{
+				if (y == 0){
 					dodx = rand() % 1;
-					if (dodx == 0)
-					{
+					if (dodx == 0){
 						y += 1;
 					}
 				}
-				else if (y == N-1)
-				{
+				else if (y == N-1){
 					dodx = rand() % 1;
-					if (dodx == 0)
-					{
-						y -= 1;
-					}
+					if (dodx == 0) y -= 1;
 				}
-				else
-				{
+				else{
 					do {
 						dodx = rand() % 2;
 						dody = rand() % 3 - 1;
@@ -138,24 +108,15 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 				}
 			}
 			else if (x == N-1) {
-				if (y == 0)
-				{
+				if (y == 0){
 					dodx = rand() % 1;
-					if (dodx == 0)
-					{
-						y += 1;
-					}
+					if (dodx == 0) y += 1;
 				}
-				else if (y == N-1)
-				{
+				else if (y == N-1){
 					dodx = rand() % 1;
-					if (dodx == 0)
-					{
-						y -= 1;
-					}
+					if (dodx == 0) y -= 1;
 				}
-				else
-				{
+				else{
 					do {
 						dodx = rand() % 2-1;
 						dody = rand() % 3 - 1;
@@ -165,24 +126,15 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 				}
 			}
 			else if (y == 0) {
-				if (x == 0)
-				{
+				if (x == 0){
 					dody = rand() % 2 - 1;
-					if (dody == 0)
-					{
-						x += 1;
-					}
+					if (dody == 0) x += 1;
 				}
-				else if (x == N-1)
-				{
+				else if (x == N-1){
 					dody = rand() % 2 - 1;
-					if (dody == 0)
-					{
-						x -= 1;
-					}
+					if (dody == 0) x -= 1;
 				}
-				else
-				{
+				else{
 					do {
 						dodx = rand() % 3-1;
 						dody = rand() % 2;
@@ -192,24 +144,15 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 				}
 			}
 			else if (y == N-1) {
-				if (x == 0)
-				{
+				if (x == 0){
 					dody = rand() % 2 - 1;
-					if (dody == 0)
-					{
-						x += 1;
-					}
+					if (dody == 0) x += 1;
 				}
-				else if (x == N-1)
-				{
+				else if (x == N-1){
 					dody = rand() % 2 - 1;
-					if (dody == 0)
-					{
-						x -= 1;
-					}
+					if (dody == 0) x -= 1;
 				}
-				else
-				{
+				else{
 					do {
 						dodx = rand() % 3-1;
 						dody = rand() % 2-1;
@@ -226,60 +169,50 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 				x += dodx;
 				y += dody;
 			}
-			cout << "last" << x << " " << y << endl;
 		}
-		else
-		{
+		else{
 			x = rand() % N;
 			y = rand() % N;
-			cout << x << " " << y << endl;
 		}
-		if (PlayerBoard[y][x] == 'x')
-		{
+		if (PlayerBoard[x][y] == 'x'){
+			consol.SetCursorPosition(0, 0);
 			cout << "trafiony\n";
-			PlayerBoard[y][x] = 'T';
-			if (LastHit ==true)
-			{
-				DoubleHit = true;
-			}
+			PlayerBoard[x][y] = 'T';
+			if (LastHit ==true) DoubleHit = true;
 			trafiony = true;
 			LastHit = true;
-			for (int i = 0; i < 10; i++)
-			{
+			for (int i = 0; i < 10; i++){
 				if (statki[i].IsDestroyed() == true) {
+					consol.SetCursorPosition(0, 0);
 					cout << "zniszczony\n";
 					LastHit = false;
 					DoubleHit = false;
 					int win = 0;
-					for (int i = 0; i < 10; i++)
-					{
-						if (statki[i].isDestroyed) {
-							win++;
-						}
+					for (int i = 0; i < 10; i++){
+						if (statki[i].isDestroyed) win++;
 					}
-					if (win == 10)
-					{
+					if (win == 10){
 						over = true;
+						system("CLS");
 						cout << "Wygrales farajerze essa na noba\n";
 						exit(0);
-
 					}
 				};
 			}
+			consol.ClearConsoleFromThirdLine();
 			tab.ShowTwoBoard(AiVisibleBoard, PlayerBoard);
 			continue;
 		}
-		else if (PlayerBoard[y][x] == 'T'|| PlayerBoard[y][x] == 'O') {
+		else if (PlayerBoard[x][y] == 'T'|| PlayerBoard[x][y] == 'O') {
 			cout << "Juz tu strzelales mordo\n";
 			LastHit = false;
 			DoubleHit = false;
 			continue;
 		}
-		else
-		{
+		else{
 			
 			trafiony = false;
-			PlayerBoard[y][x] = 'O';
+			PlayerBoard[x][y] = 'O';
 			cout << "pudlo\n";
 			break;
 		}

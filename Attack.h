@@ -3,10 +3,11 @@
 #include "Boards.h"
 #include "Ships.h"
 #include <stdlib.h>
-#include "CheckIf.h"
+#include "console.h"
 using namespace std;
 class Attack{
 private:
+	console consol;
 	Boards tab;
 	int N = tab.GetN();
 public:

@@ -1,8 +1,7 @@
 #include "ShipsAi.h"
-#include "CheckIf.h"
+#include "console.h"
 void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
-	int nb = 0, xp, yp, xk, yk, granica = 0, granica2=0, granica3 =0, granica4=0, granica5=0;
-	CheckIf checker;
+	int nb = 0, xp, yp, xk, yk;
 	board = tab.GetBoard();
 	while (nb < qt) {
 		bool blad=false;
@@ -34,48 +33,41 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				if (i != 0 && i != (N - 1) && yp != 0 && yp != (N - 1)){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
 						blad = true;
-						granica += 1;
 						break;
 					}
 				}
 				else if (i == 0 && yp == 0){
 					if (board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x'){
-						granica2 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == (N - 1) && yp == 0){
 					if (board[i - 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x'){
-						granica3 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == (N - 1) && yp == (N - 1)){
 					if (board[i - 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x'){
-						granica4 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == 0 && yp == (N - 1)){
 					if (board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x'){
-						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == 0){
 					if (board[i + 1][yp] == 'x' || board[i + 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i + 1][yp - 1] == 'x' || board[i][yp - 1] == 'x'){
-						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == N - 1){
 					if (board[i - 1][yp] == 'x' || board[i - 1][yp + 1] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i][yp - 1] == 'x'){
-						granica5 += 1;
 						blad = true;
 						break;
 					}
@@ -83,14 +75,12 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 				else if (yp == 0){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp + 1] == 'x' || board[i - 1][yp + 1] == 'x' || board[i + 1][yp + 1] == 'x') {
 						blad = true;
-						granica += 1;
 						break;
 					}
 				}
 				else if (yp == N - 1){
 					if (board[i - 1][yp] == 'x' || board[i + 1][yp] == 'x' || board[i][yp - 1] == 'x' || board[i - 1][yp - 1] == 'x' || board[i + 1][yp - 1] == 'x') {
 						blad = true;
-						granica += 1;
 						break;
 					}
 				}
@@ -118,63 +108,54 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 			for (int i = yp; i <= yk; i++){
 				if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1)){
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						granica += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == 0 && xp == 0){
 					if (board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i + 1] == 'x'){
-						granica2 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == 0 && xp == (N - 1)){
 					if (board[xp - 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x'){
-						granica3 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == (N - 1) && xp == (N - 1)){
 					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x'){
-						granica4 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == (N - 1) && xp == 0){
 					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp + 1][i - 1] == 'x'){
-						granica5 += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == 0){
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						granica += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (i == N - 1) {
 					if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x') {
-						granica += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (xp == 0) {
 					if (board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp + 1][i + 1] == 'x') {
-						granica += 1;
 						blad = true;
 						break;
 					}
 				}
 				else if (xp == N - 1) {
 					if (board[xp - 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x') {
-						granica += 1;
 						blad = true;
 						break;
 					}
