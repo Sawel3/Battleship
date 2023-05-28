@@ -33,11 +33,13 @@ int main() {
 	ai.SetShipsAi(AiShips);
 	char** AiArr = ai.GetAiBoard();
 
-	gracz.SetShips(PmcShips);
-	/*player.SetShipsAi(PmcShips);*/
-	char** PmcArr = gracz.GetBoard();
+	/*gracz.SetShips(PmcShips);*/
+	player.SetShipsAi(PmcShips);
+	/*char** PmcArr = gracz.GetBoard();*/
+	char** PmcArr = player.GetAiBoard();
 	tablica.ShowTwoBoard(AiBoard, PmcArr);
 	//game loop
+	cout << "dziala\n";
 	while (true)
 	{
 		tablica.ShowTwoBoard(AiBoard,PmcArr);

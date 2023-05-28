@@ -62,9 +62,14 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 				tab.Show_Board(AiRealBoard);
 				continue;
 			}
+			else if (AiRealBoard[y][x] == 'T') {
+				cout << "juz tu strzela³es mordo\n";
+				continue;
+			}
 			else
 			{
 				trafiony = false;
+				AiVisibleBoard[y][x] = 'O';
 				cout << "pudlo\n";
 				break;
 			}
@@ -72,21 +77,179 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 	}
 }
 void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
-	bool trafiony = true, over = false;
-	int strzaly = true, x, y;
+	bool trafiony = true, over = false, LastHit = false, DoubleHit = false;
+	int x=0, y=0, dodx, dody;
 	while (trafiony == true && over == false)
 	{
-		x = rand() % N;
-		y = rand() % N;
+		if (DoubleHit == true) {
+			switch (dodx)
+			{
+			case 0:
+				switch (dody)
+				{
+				case 1:
+					y += 1;
+					break;
+				case -1:
+					y -= 1;
+					break;
+				default:
+					break;
+				}
+				break;
+			case 1:
+				x += 1;
+				break;
+			case -1:
+				x -= 1;
+				break;
+			default:
+				break;
+			}
+		}
+		else if (LastHit == true)
+		{
+			dodx = 0, dody = 0;
+			if (x == 0) {
+				if (y == 0)
+				{
+					dodx = rand() % 1;
+					if (dodx == 0)
+					{
+						y += 1;
+					}
+				}
+				else if (y == N-1)
+				{
+					dodx = rand() % 1;
+					if (dodx == 0)
+					{
+						y -= 1;
+					}
+				}
+				else
+				{
+					do {
+						dodx = rand() % 2;
+						dody = rand() % 3 - 1;
+					} while (abs(dodx) == abs(dody) || (dodx == 0 && dody == 0));
+					x += dodx;
+					y += dody;
+				}
+			}
+			else if (x == N-1) {
+				if (y == 0)
+				{
+					dodx = rand() % 1;
+					if (dodx == 0)
+					{
+						y += 1;
+					}
+				}
+				else if (y == N-1)
+				{
+					dodx = rand() % 1;
+					if (dodx == 0)
+					{
+						y -= 1;
+					}
+				}
+				else
+				{
+					do {
+						dodx = rand() % 2-1;
+						dody = rand() % 3 - 1;
+					} while (abs(dodx) == abs(dody) || (dodx == 0 && dody == 0));
+					x += dodx;
+					y += dody;
+				}
+			}
+			else if (y == 0) {
+				if (x == 0)
+				{
+					dody = rand() % 2 - 1;
+					if (dody == 0)
+					{
+						x += 1;
+					}
+				}
+				else if (x == N-1)
+				{
+					dody = rand() % 2 - 1;
+					if (dody == 0)
+					{
+						x -= 1;
+					}
+				}
+				else
+				{
+					do {
+						dodx = rand() % 3-1;
+						dody = rand() % 2;
+					} while (abs(dodx) == abs(dody) || (dodx == 0 && dody == 0));
+					x += dodx;
+					y += dody;
+				}
+			}
+			else if (y == N-1) {
+				if (x == 0)
+				{
+					dody = rand() % 2 - 1;
+					if (dody == 0)
+					{
+						x += 1;
+					}
+				}
+				else if (x == N-1)
+				{
+					dody = rand() % 2 - 1;
+					if (dody == 0)
+					{
+						x -= 1;
+					}
+				}
+				else
+				{
+					do {
+						dodx = rand() % 3-1;
+						dody = rand() % 2-1;
+					} while (abs(dodx) == abs(dody) || (dodx == 0 && dody == 0));
+					x += dodx;
+					y += dody;
+				}
+			}
+			else{
+				do {
+					dody = rand() % 3 - 1;
+					dodx = rand() % 3 - 1;
+				} while (abs(dodx) == abs(dody) || (dodx == 0 && dody == 0));
+				x += dodx;
+				y += dody;
+			}
+			cout << "last" << x << " " << y << endl;
+		}
+		else
+		{
+			x = rand() % N;
+			y = rand() % N;
+			cout << x << " " << y << endl;
+		}
 		if (PlayerBoard[y][x] == 'x')
 		{
 			cout << "trafiony\n";
 			PlayerBoard[y][x] = 'T';
+			if (LastHit ==true)
+			{
+				DoubleHit = true;
+			}
 			trafiony = true;
+			LastHit = true;
 			for (int i = 0; i < 10; i++)
 			{
 				if (statki[i].IsDestroyed() == true) {
 					cout << "zniszczony\n";
+					LastHit = false;
+					DoubleHit = false;
 					int win = 0;
 					for (int i = 0; i < 10; i++)
 					{
@@ -106,9 +269,15 @@ void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 			tab.ShowTwoBoard(AiVisibleBoard, PlayerBoard);
 			continue;
 		}
+		else if (PlayerBoard[y][x] == 'T'|| PlayerBoard[y][x] == 'O') {
+			cout << "Juz tu strzelales mordo\n";
+			continue;
+		}
 		else
 		{
+			
 			trafiony = false;
+			PlayerBoard[y][x] = 'O';
 			cout << "pudlo\n";
 			break;
 		}

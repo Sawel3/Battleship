@@ -3,6 +3,7 @@
 #include "Boards.h"
 #include "Ships.h"
 #include <stdlib.h>
+#include "CheckIf.h"
 using namespace std;
 class Attack
 {
