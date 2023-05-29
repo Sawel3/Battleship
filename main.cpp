@@ -12,9 +12,8 @@
 using namespace std;
 Ships AiShips[10]; //array of class Ships for Ai Ships
 Ships PmcShips[10]; //array of class Ships for Player's Ships
-
+string option;
 int main() {
-	string option;
 	srand(time(0));
 	//setting objects
 	Boards tablica;
@@ -25,6 +24,7 @@ int main() {
 	ShipsPlayer gracz;
 	Attack atak; 
 	console consol;
+	//setting arrays
 	char** AiBoard;
 	char** PmcBoard;
 	char** AiArr;
@@ -34,19 +34,19 @@ int main() {
 		cout << "Welcome to my battleships board game\n1.Play\n2.Credits\n3.Exit the game\n(enter the appropriate number)\n";
 		cin >> option;
 		switch (option[0]) {
-		case '1':
+		case '1': //game
 			system("CLS");
 			tablica.Clear_Board();
-
+			//setting visable pc's board
 			AiBoards.Clear_Board();
 			AiBoard = AiBoards.GetBoard();
-
+			//setting player's board
 			PmcBoards.Clear_Board();
 			PmcBoard = PmcBoards.GetBoard();
-
+			//placing ships on pc's board
 			ai.SetShipsAi(AiShips);
 			AiArr = ai.GetAiBoard();
-
+			//placing ships on player's board
 			player.SetShipsAi(PmcShips);
 			PmcArr = player.GetAiBoard();
 
@@ -58,24 +58,24 @@ int main() {
 				consol.SetCursorPosition(0, 1);
 				cout << "Player's turn\n";
 				tablica.ShowTwoBoard(AiBoard, PmcArr);
-				atak.Atak(AiArr, AiShips, AiBoard, PmcArr);
+				atak.Atak(AiArr, AiShips, AiBoard, PmcArr);//attack function for player
 				system("CLS");
 				cout << "PC's turn\n";
-				atak.AiAtak(PmcArr, PmcShips, AiBoard);
+				atak.AiAtak(PmcArr, PmcShips, AiBoard);//atack function for pc
 			}
 			break;
-		case '2':
+		case '2'://credits
 			system("CLS");
 			cout << "Credits:\nMade by Pawel \"Sawel\" Sawczuk\nmostly:)\n\n";
 			system("pause");
 			system("CLS");
 			break;
-		case '3':
+		case '3'://exit
 			system("CLS");
 			cout << "Thank you for playing my game :)\n";
 			exit(0);
 			break;
-		default:
+		default://error
 			system("CLS");
 			cout << "You typed wrong character\n";
 			break;
