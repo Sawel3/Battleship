@@ -1,0 +1,2 @@
+# BattleShips
+## How to play
