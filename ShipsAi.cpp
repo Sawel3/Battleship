@@ -4,7 +4,7 @@
 /// Sets the coordinates ai.
 /// </summary>
 /// <param name="lenght">The lenght.</param>
-/// <param name="qt">The qt.</param>
+/// <param name="qt">The quantity of ships.</param>
 /// <param name="statki">The statki.</param>
 
 void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
@@ -204,6 +204,10 @@ void ShipsAi::SetShipsAi(Ships statki[]) {
 	SetCoordinatesAi(2, 4, statki);
 }
 
+/// <summary>
+/// Gets the ai board.
+/// </summary>
+/// <returns>arr</returns>
 char** ShipsAi::GetAiBoard() {
 	char** arr = tab.GetBoard();
 	return arr;

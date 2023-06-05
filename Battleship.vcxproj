@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Boards.cpp" />
-    <ClCompile Include="CheckIf.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ships.cpp" />
@@ -151,7 +150,6 @@
   <ItemGroup>
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Boards.h" />
-    <ClInclude Include="CheckIf.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Ships.h" />
     <ClInclude Include="ShipsAi.h" />
