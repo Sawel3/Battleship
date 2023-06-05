@@ -21,7 +21,7 @@ Boards::Boards() {
 /// <summary>
 /// Gets the board.
 /// </summary>
-/// <returns></returns>
+/// <returns>board</returns>
 char** Boards::GetBoard() {
 	return board;
 }
@@ -49,8 +49,8 @@ void Boards::Show_Board(char** board) {
 /// <summary>
 /// Shows the two specified board.
 /// </summary>
-/// <param name="AiBoard">The ai board.</param>
-/// <param name="PmcBoard">The PMC board.</param>
+/// <param name="AiBoard">The ai's board.</param>
+/// <param name="PmcBoard">The Player's board.</param>
 void Boards::ShowTwoBoard(char** AiBoard, char** PmcBoard) {
 	char a = 'A';
 	char c = 'A';

@@ -1,5 +1,5 @@
 #include "Attack.h"
-/// /// <summary>
+/// <summary>
 /// Ataks the specified ai real board.
 /// </summary>
 /// <param name="AiRealBoard">The ai real board.</param>

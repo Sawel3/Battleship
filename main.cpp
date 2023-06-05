@@ -20,8 +20,17 @@
 #include "console.h"
 
 using namespace std;
-Ships AiShips[10]; //array of class Ships for Ai Ships
-Ships PmcShips[10]; //array of class Ships for Player's Ships
+/// <summary>
+/// The array of class Ships for Ai Ships
+/// </summary>
+Ships AiShips[10];
+/// <summary>
+/// The array of class Ships for Player's Ships
+/// </summary>
+Ships PmcShips[10];
+/// <summary>
+/// String for choosing an option in the main menu
+/// </summary>
 string option;
 /// <summary>
 /// Mains this instance.
