@@ -371,7 +371,7 @@ void ShipsPlayer::SetShips(Ships statki[]) {
 /// <summary>
 /// Gets the board.
 /// </summary>
-/// <returns>arr</returns>
+/// <returns></returns>
 char** ShipsPlayer::GetBoard() {
 	char** arr = tab.GetBoard();
 	return arr;

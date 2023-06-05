@@ -36,8 +36,8 @@ void console::ClearConsoleFromThirdLine()
 /// <summary>
 /// Sets the cursor position.
 /// </summary>
-/// <param name="x">The x position.</param>
-/// <param name="y">The y position.</param>
+/// <param name="x">The x.</param>
+/// <param name="y">The y.</param>
 void console::SetCursorPosition(int x, int y)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

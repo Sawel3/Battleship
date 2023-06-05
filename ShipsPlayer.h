@@ -2,6 +2,8 @@
 /**
  * \file   ShipsPlayer.h
  * \brief  Header file for ShipsPlayer
+ * \author pawci
+ * \date   June 2023
  */
 #include<iostream>
 #include "Boards.h"

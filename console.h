@@ -2,6 +2,8 @@
 /**
  * \file   console.h
  * \brief  Header file for console
+ * \author pawci
+ * \date   June 2023
  */
 #include<iostream>
 #include <Windows.h>
