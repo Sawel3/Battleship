@@ -1,4 +1,10 @@
 #pragma once
+/**
+ * \file   Boards.h
+ * \brief  Header file for Boards
+ * \author pawci
+ * \date   June 2023
+ */
 #include <iostream>
 using namespace std;
 class Boards{

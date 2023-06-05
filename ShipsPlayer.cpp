@@ -1,4 +1,10 @@
 #include "ShipsPlayer.h"
+/// <summary>
+/// Sets the coordinates.
+/// </summary>
+/// <param name="lenght">The lenght of the ship.</param>
+/// <param name="qt">The quantity of ships.</param>
+/// <param name="statki">The statki.</param>
 void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk;
 	string beg, end;
@@ -241,8 +247,6 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 					}
 				}
 				for (int i = yp; i <= yk; i++){
-					//if przy krawedzi x=0 lub y=0 lub x=max lub y=max
-					//if czy w rogu
 					if (i != 0 && i != (N - 1) && xp != 0 && xp != (N - 1)){
 						if (board[xp - 1][i] == 'x' || board[xp + 1][i] == 'x' || board[xp][i - 1] == 'x' || board[xp][i + 1] == 'x' || board[xp - 1][i - 1] == 'x' || board[xp + 1][i - 1] == 'x' || board[xp - 1][i + 1] == 'x' || board[xp + 1][i + 1] == 'x') {
 							board[xp][yp] = 'x';
@@ -338,6 +342,10 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 		}
 	}
 }
+/// <summary>
+/// Sets the ships.
+/// </summary>
+/// <param name="statki">The statki.</param>
 void ShipsPlayer::SetShips(Ships statki[]) {
 	//carrier
 	cout << "Wprowadz koordynaty dla carriera(5)\n";
@@ -360,6 +368,10 @@ void ShipsPlayer::SetShips(Ships statki[]) {
 	SetCoordinates(2, 4, statki);
 	system("CLS");
 }
+/// <summary>
+/// Gets the board.
+/// </summary>
+/// <returns></returns>
 char** ShipsPlayer::GetBoard() {
 	char** arr = tab.GetBoard();
 	return arr;

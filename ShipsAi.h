@@ -1,4 +1,10 @@
 #pragma once
+/**
+ * \file   ShipsAi.h
+ * \brief  Header file for ShipsAi
+ * \author pawci
+ * \date   June 2023
+ */
 #include<iostream>
 #include "Boards.h"
 #include "Ships.h"

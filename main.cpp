@@ -1,3 +1,13 @@
+/**
+ * \mainpage
+ * \par Battleship
+ * Battleships board game
+ * \author Pawel Sawczuk
+ * \date   June 2023
+ * \version 1.0
+ * \par Kontakt:
+ * \a pawel.sawczuk2.stud@pw.edu.pl
+*/
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
@@ -13,6 +23,10 @@ using namespace std;
 Ships AiShips[10]; //array of class Ships for Ai Ships
 Ships PmcShips[10]; //array of class Ships for Player's Ships
 string option;
+/// <summary>
+/// Mains this instance.
+/// </summary>
+/// <returns></returns>
 int main() {
 	srand(time(0));
 	//setting objects

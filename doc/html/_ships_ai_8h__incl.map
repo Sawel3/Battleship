@@ -1,0 +1,13 @@
+<map id="ShipsAi.h" name="ShipsAi.h">
+<area shape="rect" id="Node000001" title="Header file for ShipsAi." alt="" coords="19,5,96,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,155,93,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,34,25,55,10,81,9,97,13,113,34,143,30,146,8,116,3,98,5,79,21,52,40,31"/>
+<area shape="rect" id="Node000003" href="$_boards_8h.html" title="Header file for Boards." alt="" coords="21,80,94,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,33,60,65,55,65,55,33"/>
+<area shape="rect" id="Node000004" href="$_ships_8h.html" title="Header file for Ships." alt="" coords="118,80,183,107"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="75,30,125,69,121,73,72,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="60,107,60,140,55,140,55,107"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="136,109,86,148,83,143,133,105"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="119,155,182,181"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="153,107,153,140,148,140,148,107"/>
+</map>

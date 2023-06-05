@@ -1,9 +1,14 @@
 #include "Boards.h"
-//N getter
+/// <summary>
+/// Gets the n.
+/// </summary>
+/// <returns>N</returns>
 int Boards::GetN() {
 	return N;
 }
-//board creator
+/// <summary>
+/// Initializes a new instance of the <see cref="Boards"/> class.
+/// </summary>
 Boards::Boards() {
 	board = new char* [N];
 	for (int i = 0; i < N; i++) board[i] = new char[N];
@@ -13,11 +18,17 @@ Boards::Boards() {
 		}
 	}
 }
-//board getter
-char **Boards::GetBoard() {
+/// <summary>
+/// Gets the board.
+/// </summary>
+/// <returns></returns>
+char** Boards::GetBoard() {
 	return board;
 }
-//function that shows specified board
+/// <summary>
+/// Shows the board.
+/// </summary>
+/// <param name="board">The board.</param>
 void Boards::Show_Board(char** board) {
 	char a = 'A';
 	int b = 0;
@@ -35,7 +46,11 @@ void Boards::Show_Board(char** board) {
 		}cout << endl;
 	}cout << "_______________________________________________\n";
 }
-//function that shows 2 specified boards
+/// <summary>
+/// Shows the two specified board.
+/// </summary>
+/// <param name="AiBoard">The ai board.</param>
+/// <param name="PmcBoard">The PMC board.</param>
 void Boards::ShowTwoBoard(char** AiBoard, char** PmcBoard) {
 	char a = 'A';
 	char c = 'A';
@@ -62,7 +77,9 @@ void Boards::ShowTwoBoard(char** AiBoard, char** PmcBoard) {
 		}cout << endl;
 	}cout << "______________________________________________\t\t______________________________________________\n";
 }
-//boards cleaner
+/// <summary>
+/// Clears the board.
+/// </summary>
 void Boards::Clear_Board() {
 	for (int i = 0; i < N; i++){
 		for (int j = 0; j < N; j++) board[i][j] =' ';

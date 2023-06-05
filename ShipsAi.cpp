@@ -1,5 +1,12 @@
 #include "ShipsAi.h"
 #include "console.h"
+/// <summary>
+/// Sets the coordinates ai.
+/// </summary>
+/// <param name="lenght">The lenght.</param>
+/// <param name="qt">The qt.</param>
+/// <param name="statki">The statki.</param>
+
 void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 	int nb = 0, xp, yp, xk, yk;
 	board = tab.GetBoard();
@@ -180,6 +187,10 @@ void ShipsAi::SetCoordinatesAi(int lenght, int qt, Ships statki[]) {
 		}
 	}
 }
+/// <summary>
+/// Sets the ships ai.
+/// </summary>
+/// <param name="statki">The statki.</param>
 void ShipsAi::SetShipsAi(Ships statki[]) {
 	//carrier
 	SetCoordinatesAi(5, 1, statki);
@@ -192,6 +203,7 @@ void ShipsAi::SetShipsAi(Ships statki[]) {
 	//patrol boat
 	SetCoordinatesAi(2, 4, statki);
 }
+
 char** ShipsAi::GetAiBoard() {
 	char** arr = tab.GetBoard();
 	return arr;

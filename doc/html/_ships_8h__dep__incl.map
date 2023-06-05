@@ -1,0 +1,22 @@
+<map id="Ships.h" name="Ships.h">
+<area shape="rect" id="Node000001" title="Header file for Ships." alt="" coords="195,5,260,32"/>
+<area shape="rect" id="Node000002" href="$_attack_8h.html" title="Header file for Attack." alt="" coords="44,80,115,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,41,107,82,104,77,188,36"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="114,155,189,181"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="206,45,179,81,164,121,156,155,151,154,159,119,174,79,202,41"/>
+<area shape="rect" id="Node000005" href="$_ships_8cpp.html" title=" " alt="" coords="416,80,495,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="275,32,416,77,415,82,274,37"/>
+<area shape="rect" id="Node000006" href="$_ships_ai_8h.html" title="Header file for ShipsAi." alt="" coords="189,80,266,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="230,47,230,80,225,80,225,47"/>
+<area shape="rect" id="Node000008" href="$_ships_player_8h.html" title="Header file for ShipsPlayer." alt="" coords="290,80,392,107"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="261,38,322,77,320,82,258,43"/>
+<area shape="rect" id="Node000003" href="$_attack_8cpp.html" title=" " alt="" coords="5,155,90,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="70,122,55,155,51,153,66,119"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="104,116,141,152,137,156,100,119"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="206,119,166,156,163,152,202,115"/>
+<area shape="rect" id="Node000007" href="$_ships_ai_8cpp.html" title=" " alt="" coords="213,155,304,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="241,120,255,153,250,155,236,122"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="295,115,186,157,184,152,294,110"/>
+<area shape="rect" id="Node000009" href="$_ships_player_8cpp.html" title=" " alt="" coords="328,155,444,181"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="359,118,381,153,376,156,354,121"/>
+</map>

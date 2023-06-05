@@ -1,10 +1,17 @@
 #pragma once
+/**
+ * \file   ShipsPlayer.h
+ * \brief  Header file for ShipsPlayer
+ * \author pawci
+ * \date   June 2023
+ */
 #include<iostream>
 #include "Boards.h"
 #include "Ships.h"
 #include "console.h"
 #include <Windows.h>
 using namespace std;
+
 class ShipsPlayer{
 private:
 	Boards tab;

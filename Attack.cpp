@@ -1,4 +1,11 @@
 #include "Attack.h"
+/// /// <summary>
+/// Ataks the specified ai real board.
+/// </summary>
+/// <param name="AiRealBoard">The ai real board.</param>
+/// <param name="statki">The statki.</param>
+/// <param name="AiVisibleBoard">The ai visible board.</param>
+/// <param name="PlayerBoard">The player board.</param>
 void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, char** PlayerBoard) {
 	bool trafiony=true, over=false;
 	int strzaly=true,x,y;
@@ -57,6 +64,12 @@ void Attack::Atak(char** AiRealBoard, Ships statki[], char** AiVisibleBoard, cha
 		}
 	}
 }
+/// <summary>
+/// Ai's the atak.
+/// </summary>
+/// <param name="PlayerBoard">The player board.</param>
+/// <param name="statki">The statki.</param>
+/// <param name="AiVisibleBoard">The ai visible board.</param>
 void Attack::AiAtak(char** PlayerBoard, Ships statki[], char** AiVisibleBoard) {
 	bool trafiony = true, over = false, LastHit = false, DoubleHit = false;
 	int x=0, y=0, dodx, dody;

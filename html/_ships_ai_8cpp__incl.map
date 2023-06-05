@@ -1,0 +1,20 @@
+<map id="ShipsAi.cpp" name="ShipsAi.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="152,5,244,32"/>
+<area shape="rect" id="Node000002" href="$_ships_ai_8h.html" title="Header file for ShipsAi." alt="" coords="107,80,185,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,34,166,69,161,66,187,31"/>
+<area shape="rect" id="Node000007" href="$console_8h.html" title="Header file for console." alt="" coords="249,80,326,107"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="215,30,262,68,259,72,212,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,229,192,256"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="144,108,137,141,137,181,147,215,142,216,131,182,132,140,139,106"/>
+<area shape="rect" id="Node000004" href="$_boards_8h.html" title="Header file for Boards." alt="" coords="147,155,220,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="155,106,173,140,168,143,150,108"/>
+<area shape="rect" id="Node000005" href="$_ships_8h.html" title="Header file for Ships." alt="" coords="5,155,71,181"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="129,109,71,148,68,144,126,105"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="181,183,169,216,164,214,176,181"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="60,180,125,219,122,224,57,184"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="6,229,70,256"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="41,182,41,214,35,214,35,182"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="307,105,325,120,341,140,350,161,349,172,344,183,316,210,280,228,243,238,207,243,206,238,242,233,278,223,313,206,340,180,344,171,345,162,337,142,321,124,303,109"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="245,155,330,181"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="290,107,290,140,285,140,285,107"/>
+</map>

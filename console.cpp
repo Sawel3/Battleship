@@ -1,4 +1,7 @@
 #include "console.h"
+/// <summary>
+/// Clears the console from second line.
+/// </summary>
 void console::ClearConsoleFromSecondLine()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -13,6 +16,9 @@ void console::ClearConsoleFromSecondLine()
 	FillConsoleOutputAttribute(hConsole, bufferInfo.wAttributes, screenSize, startPosition, &numCharsWritten);
 	SetConsoleCursorPosition(hConsole, startPosition);
 }
+/// <summary>
+/// Clears the console from third line.
+/// </summary>
 void console::ClearConsoleFromThirdLine()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -27,6 +33,11 @@ void console::ClearConsoleFromThirdLine()
 	FillConsoleOutputAttribute(hConsole, bufferInfo.wAttributes, screenSize, startPosition, &numCharsWritten);
 	SetConsoleCursorPosition(hConsole, startPosition);
 }
+/// <summary>
+/// Sets the cursor position.
+/// </summary>
+/// <param name="x">The x.</param>
+/// <param name="y">The y.</param>
 void console::SetCursorPosition(int x, int y)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
