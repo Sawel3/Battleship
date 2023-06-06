@@ -25,11 +25,11 @@ void ShipsPlayer::SetCoordinates(int lenght, int qt, Ships statki[]) {
 		cout << "poczatkowe\nprzyklad:  "<< char(74 - rand() % 10) << 10 - rand() % 9<<endl;
 		cin >> beg;
 		if (beg.length() > 3 || beg.length() < 0) {
-			size == true;
+			size = true;
 			continue;
 		}
 		else if (beg.length() != 3 && beg.length() != 2){
-			size == true;
+			size = true;
 			continue;
 		}
 		if (beg[0] < 65 || beg[0]>74){

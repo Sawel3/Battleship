@@ -70,11 +70,10 @@ int main() {
 			ai.SetShipsAi(AiShips);
 			AiArr = ai.GetAiBoard();
 			//placing ships on player's board
-			player.SetShipsAi(PmcShips);
-			PmcArr = player.GetAiBoard();
-
-			/*gracz.SetShips(PmcShips);
-			PmcArr = gracz.GetBoard();*/
+			/*player.SetShipsAi(PmcShips);
+			PmcArr = player.GetAiBoard();*/
+			gracz.SetShips(PmcShips);
+			PmcArr = gracz.GetBoard();
 			//game loop
 			while (true){
 				system("CLS");

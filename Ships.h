@@ -2,8 +2,6 @@
 /**
  * \file   Ships.h
  * \brief  Header file for Ships
- * \author pawci
- * \date   June 2023
  */
 #include <iostream>
 #include <stdlib.h>
